@@ -1,11 +1,54 @@
-# Visual Studio
+## Visual Studio
 .vs/
 *.user
 *.suo
 
-# Build ve output klasörleri
+## Build Output
 bin/
 obj/
+Debug/
+Release/
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/net*/         # <-- tüm netX.X klasörlerini ignore et!
 
-# Diğer
+## Rider IDE
+.idea/
+
+## Test Results
+TestResults/
+*.trx
+
+## NuGet Packages
+*.nupkg
+packages/
+*.snupkg
+
+## User Specific Files
+*.userprefs
+*.csproj.user
+*.sln.docstates
+
+## OS Files
+Thumbs.db
+Desktop.ini
+
+## Logs
 *.log
+
+## CSV / Excel / Temp files (manual)
+*.csv
+*.xls
+*.xlsx
+*.tmp
+
+## Docker
+docker-compose.override.yml
+docker-compose.override.*
+
+## Others
+*.dbmdl
+*.bak
+*.sql
