@@ -8,6 +8,11 @@ bin/
 obj/
 Debug/
 Release/
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/net*/         # <-- tüm netX.X klasörlerini ignore et!
 
 ## Rider IDE
 .idea/
