@@ -4,7 +4,7 @@ namespace ContactService.Domain.Entities
 {
     public class ContactInfo
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid(); // Kişinin iletişim bilgisi için benzersiz kimlik
         public Guid PersonId { get; set; } // Kime ait?
 
         public ContactType Type { get; set; } // Telefon, Email, Lokasyon

@@ -24,7 +24,7 @@ namespace ContactService.Application.Features.CountryFeatures.Handlers
             var country = await _context.Countries.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (country == null)
             {
-                return new BaseResponse<CountryDto>("Country not found.");
+                return BaseResponse<CountryDto>.Fail("Country not found.");
             }
 
             var countryDto = _mapper.Map<CountryDto>(country);

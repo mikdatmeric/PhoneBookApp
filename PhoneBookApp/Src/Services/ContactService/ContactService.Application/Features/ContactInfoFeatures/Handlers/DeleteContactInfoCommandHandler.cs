@@ -18,7 +18,7 @@ namespace ContactService.Application.Features.ContactInfoFeatures.Handlers
         {
             var contactInfo = await _unitOfWork.ContactInfoRepository.GetByIdAsync(request.ContactInfoId);
             if (contactInfo == null)
-                return new BaseResponse<Guid>("Contact Info not found.");
+                return BaseResponse<Guid>.Fail("Contact Info not found.");
 
             _unitOfWork.ContactInfoRepository.DeleteAsync(contactInfo);
             await _unitOfWork.SaveChangesAsync();

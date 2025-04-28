@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ContactService.Application.Services.Abstract
 {
-    internal interface IPersonService
+    public interface IPersonService
     {
         Task<BaseResponse<Guid>> CreatePersonAsync(CreatePersonCommandDto dto);
         Task<BaseResponse<Guid>> UpdatePersonAsync(UpdatePersonCommandDto dto);

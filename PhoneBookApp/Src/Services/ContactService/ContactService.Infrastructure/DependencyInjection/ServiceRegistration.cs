@@ -20,7 +20,7 @@ namespace ContactService.Infrastructure.DependencyInjection
             // Repository Injection
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IContactInfoRepository, ContactInfoRepository>();
-
+            services.AddScoped<ICountryRepository, CountryRepository>();
             // Unit of Work Injection
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 

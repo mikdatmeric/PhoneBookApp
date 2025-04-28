@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  contactservice.api:
+    build:
+      context: ./src/Services/ContactService/ContactService.Api
+      dockerfile: Dockerfile
+    container_name: contactservice-api
+    ports:
+      - "5000:80"
+    depends_on:
+      - postgresdb
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=postgresdb;Port=5432;Database=ContactDB;Username=postgres;Password=admin1234
+
+  postgresdb:
+    image: postgres:14
+    container_name: contactdb-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin1234
+      POSTGRES_DB: ContactDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

@@ -1,0 +1,29 @@
+﻿# -------------------------------
+# 1. Base Image (build için)
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /app
+
+# 2. Proje dosyalarını kopyala
+COPY *.sln .
+COPY Src/Services/ContactService/ContactService.Application/*.csproj Src/Services/ContactService/ContactService.Application/
+COPY Src/Services/ContactService/ContactService.Infrastructure/*.csproj Src/Services/ContactService/ContactService.Infrastructure/
+COPY Src/Services/ContactService/ContactService.Api/*.csproj Src/Services/ContactService/ContactService.Api/
+COPY Src/Shared/Shared.BaseResponses/*.csproj Src/Shared/Shared.BaseResponses/
+COPY Src/Shared/Shared.Events/*.csproj Src/Shared/Shared.Events/
+
+# 3. Projeleri restore et
+RUN dotnet restore
+
+# 4. Projeyi build et
+COPY . .
+WORKDIR /app/Src/Services/ContactService/ContactService.Api
+RUN dotnet publish -c Release -o /publish
+
+# -------------------------------
+# 5. Runtime Image (çalışma için)
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+WORKDIR /app
+COPY --from=build /publish .
+
+# 6. Uygulama başlat
+ENTRYPOINT ["dotnet", "ContactService.Api.dll"]
