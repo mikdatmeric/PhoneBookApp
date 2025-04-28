@@ -1,7 +1,7 @@
 # 📚 PhoneBookApp - Mikroservis Telefon Rehberi Uygulaması
 
 Bu proje, iş mülakatı kapsamında geliştirilmiş bir mikroservis mimarili **Telefon Rehberi** uygulamasıdır.  
-.NET 8/9, PostgreSQL, Kafka, Docker Compose kullanılarak geliştirilmiştir.  
+.NET 9, PostgreSQL, Kafka, Docker Compose kullanılarak geliştirilmiştir.  
 Servisler birbirleriyle **REST API** ve **Kafka üzerinden** haberleşmektedir.
 
 ---
