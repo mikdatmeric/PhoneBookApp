@@ -26,7 +26,7 @@ namespace ContactService.Application.Features.ContactInfoFeatures.Handlers
                 var contactInfo = await _context.ContactInfos.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
                 if (contactInfo == null)
                 {
-                    return new BaseResponse<ContactInfoDto>("ContactInfo not found.");
+                    return BaseResponse<ContactInfoDto>.Fail("ContactInfo not found.");
                 }
 
                 var contactInfoDto = _mapper.Map<ContactInfoDto>(contactInfo);

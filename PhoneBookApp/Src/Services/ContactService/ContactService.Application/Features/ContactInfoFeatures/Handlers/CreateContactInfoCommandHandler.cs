@@ -22,7 +22,7 @@ namespace ContactService.Application.Features.ContactInfoFeatures.Handlers
         {
             var person = await _unitOfWork.PersonRepository.GetByIdAsync(request.ContactInfo.PersonId);
             if (person == null)
-                return new BaseResponse<Guid>("Person not found.");
+                return BaseResponse<Guid>.Fail("Person not found.");
 
             var contactInfoEntity = _mapper.Map<ContactInfo>(request.ContactInfo);
 

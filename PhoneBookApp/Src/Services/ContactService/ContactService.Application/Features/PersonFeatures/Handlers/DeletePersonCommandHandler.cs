@@ -18,7 +18,7 @@ namespace ContactService.Application.Features.PersonFeatures.Handlers
         {
             var person = await _unitOfWork.PersonRepository.GetByIdAsync(request.PersonId);
             if (person == null)
-                return new BaseResponse<Guid>("Person not found.");
+                return BaseResponse<Guid>.Fail("Person not found.");
 
             _unitOfWork.PersonRepository.DeleteAsync(person);
             await _unitOfWork.SaveChangesAsync();

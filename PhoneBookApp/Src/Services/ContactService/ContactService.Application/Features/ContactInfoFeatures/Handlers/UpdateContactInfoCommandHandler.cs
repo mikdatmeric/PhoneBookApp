@@ -22,7 +22,7 @@ namespace ContactService.Application.Features.ContactInfoFeatures.Handlers
         {
             var existingContactInfo = await _unitOfWork.ContactInfoRepository.GetByIdAsync(request.ContactInfo.Id);
             if (existingContactInfo == null)
-                return new BaseResponse<Guid>("Contact Info not found.");
+                return BaseResponse<Guid>.Fail("Contact Info not found.");
 
             // Burada Type ve Content güncellemesi yapılacak.
             existingContactInfo.Content = request.ContactInfo.Content;
@@ -33,7 +33,7 @@ namespace ContactService.Application.Features.ContactInfoFeatures.Handlers
             }
             else
             {
-                return new BaseResponse<Guid>("Invalid contact type.");
+                return BaseResponse<Guid>.Fail("Invalid contact type.");
             }
 
             _unitOfWork.ContactInfoRepository.UpdateAsync(existingContactInfo);

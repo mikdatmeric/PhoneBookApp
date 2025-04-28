@@ -21,7 +21,7 @@ namespace ContactService.Application.Features.PersonFeatures.Handlers
         {
             var existingPerson = await _unitOfWork.PersonRepository.GetByIdAsync(request.Person.Id);
             if (existingPerson == null)
-                return new BaseResponse<Guid>("Person not found.");
+                return BaseResponse<Guid>.Fail("Person not found.");
 
             _mapper.Map(request.Person, existingPerson);
 

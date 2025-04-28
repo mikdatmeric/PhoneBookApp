@@ -1,4 +1,5 @@
-﻿using ContactService.Application.DependencyInjection;
+﻿using ContactService.API.Middlewares;
+using ContactService.Application.DependencyInjection;
 using ContactService.Application.Features.PersonFeatures.Handlers;
 using ContactService.Application.Validators.PersonValidators;
 using ContactService.Infrastructure.DependencyInjection;
@@ -47,6 +48,8 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Swagger ana sayfa olsun
     });
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // 9️⃣ HTTPS Redirection (Opsiyonel)
 app.UseHttpsRedirection();

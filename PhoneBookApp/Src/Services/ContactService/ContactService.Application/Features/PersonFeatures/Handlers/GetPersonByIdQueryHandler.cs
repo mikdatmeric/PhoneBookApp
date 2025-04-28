@@ -27,7 +27,7 @@ namespace ContactService.Application.Features.PersonFeatures.Handlers
                 .FirstOrDefaultAsync(p => p.Id == request.PersonId, cancellationToken);
 
             if (person == null)
-                return new BaseResponse<PersonDetailDto>("Person not found.");
+                return BaseResponse<PersonDetailDto>.Fail("Person not found.");
 
             var personDetailDto = _mapper.Map<PersonDetailDto>(person);
 

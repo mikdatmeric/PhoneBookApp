@@ -27,7 +27,7 @@ namespace ContactService.Application.Features.ContactInfoFeatures.Handlers
 
             if (contactInfos == null || !contactInfos.Any())
             {
-                return new BaseResponse<List<ContactInfoDto>>("No contact info found for this person.");
+                return BaseResponse<List<ContactInfoDto>>.Fail("No contact info found for this person.");
             }
 
             var contactInfoDtos = _mapper.Map<List<ContactInfoDto>>(contactInfos);
