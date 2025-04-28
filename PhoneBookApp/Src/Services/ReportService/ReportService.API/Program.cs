@@ -6,8 +6,11 @@ using ReportService.Infrastructure.DependecyInjection;
 using ReportService.Application.Features.Handlers;
 using ReportService.Application.Validators;
 using ReportService.API.Middlewares;
+using ReportService.Application.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 // 1️⃣ Application Katmanı DI Registrations
 builder.Services.AddApplicationServices();
