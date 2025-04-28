@@ -1,7 +1,17 @@
-using ReportService.Worker;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting.WindowsServices;
+using ReportService.Infrastructure.Persistence.Contexts;
+using ReportService.Worker.Services;
 
-var builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddHostedService<Worker>();
+IHost host = Host.CreateDefaultBuilder(args)
+    .UseWindowsService()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.AddHostedService<KafkaConsumerService>();
 
-var host = builder.Build();
-host.Run();
+        services.AddDbContext<ReportDbContext>(options =>
+            options.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection")));
+    })
+    .Build();
+
+await host.RunAsync();
