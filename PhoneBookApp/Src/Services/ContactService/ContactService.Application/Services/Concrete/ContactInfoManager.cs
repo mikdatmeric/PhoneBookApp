@@ -8,12 +8,12 @@ using Shared.BaseResponses.Response;
 
 namespace ContactService.Application.Services.Concrete
 {
-    public class ContactInfoService : IContactInfoService
+    public class ContactInfoManager : IContactInfoService
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public ContactInfoService(IMediator mediator, IMapper mapper)
+        public ContactInfoManager(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;

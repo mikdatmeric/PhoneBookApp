@@ -8,9 +8,9 @@ namespace ContactService.Application.DependencyInjection
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            services.AddScoped<IPersonService, PersonService>();
-            services.AddScoped<IContactInfoService, ContactInfoService>();
-            services.AddScoped<ICountryService, CountryService>();
+            services.AddScoped<IPersonService, PersonManager>();
+            services.AddScoped<IContactInfoService, ContactInfoManager>();
+            services.AddScoped<ICountryService, CountryManager>();
 
             return services;
         }

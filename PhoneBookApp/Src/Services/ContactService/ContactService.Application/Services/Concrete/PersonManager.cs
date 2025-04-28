@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace ContactService.Application.Services.Concrete
 {
-    public class PersonService : IPersonService
+    public class PersonManager : IPersonService
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
 
-        public PersonService(IMediator mediator, IMapper mapper)
+        public PersonManager(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;

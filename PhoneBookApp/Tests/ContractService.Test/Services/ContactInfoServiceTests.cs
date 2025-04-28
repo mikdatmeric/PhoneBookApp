@@ -22,7 +22,7 @@ namespace ContactService.Test.Services
         {
             _mediatorMock = new Mock<IMediator>();
             _mapperMock = new Mock<IMapper>();
-            _contactInfoService = new ContactInfoService(_mediatorMock.Object, _mapperMock.Object);
+            _contactInfoService = new ContactInfoManager(_mediatorMock.Object, _mapperMock.Object);
         }
 
         [Fact]
