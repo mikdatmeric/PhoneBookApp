@@ -1,0 +1,8 @@
+﻿bin/
+obj/
+*.md
+*.user
+*.vs
+.vscode
+dockerfile
+docker-compose.yml
