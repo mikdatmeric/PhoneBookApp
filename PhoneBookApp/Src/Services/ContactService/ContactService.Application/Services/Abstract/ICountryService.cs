@@ -7,5 +7,6 @@ namespace ContactService.Application.Services.Abstract
     {
         Task<BaseResponse<List<CountryDto>>> GetAllCountriesAsync();
         Task<BaseResponse<CountryDto>> GetCountryByIdAsync(Guid id);
+        bool CheckCountryExists(Guid id);
     }
 }
