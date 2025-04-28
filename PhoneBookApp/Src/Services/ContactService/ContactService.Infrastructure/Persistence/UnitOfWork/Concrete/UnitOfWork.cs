@@ -9,19 +9,17 @@ namespace ContactService.Infrastructure.Persistence.UnitOfWork.Concrete
     {
         private readonly ContactDbContext _context;
 
-        private IPersonRepository _personRepository;
-        private IContactInfoRepository _contactInfoRepository;
+        public ICountryRepository CountryRepository { get; }
+        public IPersonRepository PersonRepository { get; }
+        public IContactInfoRepository ContactInfoRepository { get; }
 
         public UnitOfWork(ContactDbContext context)
         {
             _context = context;
+            CountryRepository = new CountryRepository(_context);
+            PersonRepository = new PersonRepository(_context);
+            ContactInfoRepository = new ContactInfoRepository(_context);
         }
-
-        public IPersonRepository PersonRepository =>
-            _personRepository ??= new PersonRepository(_context);
-
-        public IContactInfoRepository ContactInfoRepository =>
-            _contactInfoRepository ??= new ContactInfoRepository(_context);
 
         public async Task<int> SaveChangesAsync()
         {

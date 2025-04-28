@@ -4,17 +4,24 @@ namespace Shared.BaseResponses.Response
     public class BaseResponse<T>
     {
         public bool Success { get; set; }
-        public string? Message { get; set; }
-        public T? Data { get; set; }
+        public string Message { get; set; }
+        public T Data { get; set; }
 
-        public static BaseResponse<T> SuccessResponse(T data, string message = "")
+        public BaseResponse()
         {
-            return new BaseResponse<T> { Success = true, Data = data, Message = message };
+            Success = true;
         }
 
-        public static BaseResponse<T> FailureResponse(string message)
+        public BaseResponse(T data)
         {
-            return new BaseResponse<T> { Success = false, Message = message };
+            Success = true;
+            Data = data;
+        }
+
+        public BaseResponse(string message)
+        {
+            Success = false;
+            Message = message;
         }
     }
 }

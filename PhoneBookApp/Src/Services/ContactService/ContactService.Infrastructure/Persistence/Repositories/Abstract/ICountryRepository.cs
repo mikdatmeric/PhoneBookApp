@@ -3,7 +3,7 @@ using ContactService.Infrastructure.Persistence.Repositories.Abstract.Base;
 
 namespace ContactService.Infrastructure.Persistence.Repositories.Abstract
 {
-    public interface IPersonRepository : IRepository<Person>
+    public interface ICountryRepository : ISelectable<Country>
     {
 
     }
