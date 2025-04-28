@@ -22,7 +22,8 @@ namespace ContactService.Application.Mappings
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => Enum.Parse<ContactType>(src.Type)));
 
             // CreatePersonCommandDto -> Person
-            CreateMap<CreatePersonCommandDto, Person>();
+            CreateMap<CreatePersonCommandDto, Person>()
+                .ForMember(dest => dest.ContactInfos, opt => opt.MapFrom(src => src.ContactInfos));
 
             // UpdatePersonCommandDto -> Person
             CreateMap<UpdatePersonCommandDto, Person>();

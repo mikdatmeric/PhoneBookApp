@@ -3,8 +3,8 @@ version: '3.8'
 services:
   contactservice.api:
     build:
-      context: .
-      dockerfile: src/Services/ContactService/ContactService.Api/Dockerfile
+      context: ./src/Services/ContactService/ContactService.Api
+      dockerfile: Dockerfile
     container_name: contactservice-api
     ports:
       - "5000:80"
@@ -16,12 +16,12 @@ services:
 
   postgresdb:
     image: postgres:14
-    container_name: phonebook-postgres
+    container_name: contactdb-postgres
     restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin1234
-      POSTGRES_DB: PhoneBookDb
+      POSTGRES_DB: ContactDB
     ports:
       - "5432:5432"
     volumes:

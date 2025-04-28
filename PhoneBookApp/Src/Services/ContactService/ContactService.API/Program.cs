@@ -1,6 +1,7 @@
 ﻿using ContactService.API.Middlewares;
 using ContactService.Application.DependencyInjection;
 using ContactService.Application.Features.PersonFeatures.Handlers;
+using ContactService.Application.Mappings;
 using ContactService.Application.Validators.PersonValidators;
 using ContactService.Infrastructure.DependencyInjection;
 using FluentValidation;
@@ -8,6 +9,9 @@ using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
 // 1️⃣ Application Katmanı DI Registrations
 builder.Services.AddApplicationServices();

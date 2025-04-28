@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ContactService.Application.DTOs;
+using ContactService.Application.Features.CountryFeatures.Queries;
 using ContactService.Application.Services.Abstract;
 using ContactService.Application.Services.Concrete;
 using ContactService.Infrastructure.Persistence.UnitOfWork.Abstract;
@@ -29,7 +30,7 @@ namespace ContactService.Test.Services
         public async Task GetAllCountries_Should_Return_Success()
         {
             // Arrange
-            _mediatorMock.Setup(x => x.Send(It.IsAny<object>(), default))
+            _mediatorMock.Setup(x => x.Send(It.IsAny<GetAllCountriesQuery>(), It.IsAny<CancellationToken>()))
                 .ReturnsAsync(new BaseResponse<List<CountryDto>>(new List<CountryDto>()));
 
             // Act
@@ -45,8 +46,13 @@ namespace ContactService.Test.Services
         {
             // Arrange
             var id = Guid.NewGuid();
-            _mediatorMock.Setup(x => x.Send(It.IsAny<object>(), default))
-                .ReturnsAsync(new BaseResponse<CountryDto>(new CountryDto { Id = id }));
+            _mediatorMock.Setup(x => x.Send(It.IsAny<GetCountryByIdQuery>(), It.IsAny<CancellationToken>()))
+                         .ReturnsAsync(new BaseResponse<CountryDto>(new CountryDto
+                         {
+                             Id = id,
+                             Name = "Turkey",
+                             PhoneCode = "+90"
+                         }));
 
             // Act
             var result = await _countryService.GetCountryByIdAsync(id);
