@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{49
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportService", "ReportService", "{FCCCFAAB-3186-47E6-9791-F0D5ADCB5FC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContractService.Test", "Tests\ContractService.Test\ContractService.Test.csproj", "{9D575280-D07D-4BAA-A135-9FC3948D5AF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactService.Test", "Tests\ContractService.Test\ContactService.Test.csproj", "{9D575280-D07D-4BAA-A135-9FC3948D5AF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportService.Test", "Tests\ReportService.Test\ReportService.Test.csproj", "{304176ED-7474-47B8-BE5E-7C5CC3650C45}"
 EndProject
