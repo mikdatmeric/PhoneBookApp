@@ -8,13 +8,13 @@ using Shared.BaseResponses.Response;
 
 namespace ContactService.Application.Services.Concrete
 {
-    public class CountryService : ICountryService
+    public class CountryManager : ICountryService
     {
         private readonly IMediator _mediator;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public CountryService(IMediator mediator, IUnitOfWork unitOfWork, IMapper mapper)
+        public CountryManager(IMediator mediator, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _mediator = mediator;
             _unitOfWork = unitOfWork;

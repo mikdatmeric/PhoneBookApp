@@ -23,7 +23,7 @@ namespace ContactService.Test.Services
             _mediatorMock = new Mock<IMediator>();
             _unitOfWorkMock = new Mock<IUnitOfWork>();
             _mapperMock = new Mock<IMapper>();
-            _countryService = new CountryService(_mediatorMock.Object, _unitOfWorkMock.Object, _mapperMock.Object);
+            _countryService = new CountryManager(_mediatorMock.Object, _unitOfWorkMock.Object, _mapperMock.Object);
         }
 
         [Fact]

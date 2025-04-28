@@ -26,7 +26,7 @@ namespace ContactService.Test.Services
         {
             _mediatorMock = new Mock<IMediator>();
             _mapperMock = new Mock<IMapper>();
-            _personService = new PersonService(_mediatorMock.Object, _mapperMock.Object);
+            _personService = new PersonManager(_mediatorMock.Object, _mapperMock.Object);
 
         }
 
