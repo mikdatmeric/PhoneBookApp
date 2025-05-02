@@ -59,8 +59,7 @@ Bir adet ReportDB veritabanı oluşturulmalıdır.
 
 Bağlantı bilgileri appsettings.json dosyalarında ayarlanmıştır:
 
-json
-Kopyala
+
 "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=ContactDB;Username=postgres;Password=admin1234"
 }
@@ -68,8 +67,7 @@ Sonrasında Migrations uygulayın:
 
 Terminal açın ve sırayla şu komutları çalıştırın:
 
-bash
-Kopyala
+
 cd src/Services/ContactService/ContactService.Infrastructure
 dotnet ef database update
 
@@ -81,8 +79,7 @@ dotnet ef database update
 Projede Kafka iletişimi için Docker Compose kullanılmıştır.
 Kafka ve Zookeeper'ı çalıştırmak için:
 
-bash
-Kopyala
+
 docker-compose -f docker-compose-kafka.yml up -d
 Zookeeper ➔ Port: 2181
 
@@ -110,8 +107,7 @@ ReportService ➔ http://localhost:5001/swagger
 🛠️ Testleri Çalıştırmak
 Test projeleri:
 
-bash
-Kopyala
+
 cd tests/ContactService.Test
 dotnet test
 
